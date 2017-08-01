@@ -78,11 +78,10 @@ void UGrabber::Grab() {
 	auto ActorHit = HitResult.GetActor();
 
 	/// If we hit something then attach a physics handle
-	if (ActorHit) {
-		if (!PhysicsHandle)
-		{
-			return;
-		}
+	if (ActorHit)
+	{
+
+		if (!PhysicsHandle) { return; }
 
 		PhysicsHandle->GrabComponentAtLocationWithRotation(
 			ComponentToGrab,
@@ -90,6 +89,7 @@ void UGrabber::Grab() {
 			ActorHit->GetActorLocation(),
 			ActorHit->GetActorRotation()
 		);
+
 	}
 }
 void UGrabber::Release() {
