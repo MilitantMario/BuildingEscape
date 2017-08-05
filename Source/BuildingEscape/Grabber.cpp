@@ -46,7 +46,7 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 	
-	GetReachLineEnd();
+	if (!PhysicsHandle) { return; }
 
 	// if the physics handle is attached
 	if (PhysicsHandle->GrabbedComponent) {
@@ -75,6 +75,7 @@ void UGrabber::Grab() {
 	}
 }
 void UGrabber::Release() {
+	if (!PhysicsHandle) { return; }
 	PhysicsHandle->ReleaseComponent();
 }
 
